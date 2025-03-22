@@ -1,0 +1,693 @@
+*{
+    margin: 0px;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #252525;
+    height: 100dvh;
+}
+
+h1{
+    color: #ffffff;
+}
+
+h2{
+    font-family: "Bytesized", sans-serif;
+    font-size: 40px;
+    font-weight: 400;
+    font-style: normal;
+    text-shadow: 4px 5px 2px #ffffff;
+    font-variant: small-caps; 
+}
+
+h3{
+    font-family: "Bytesized", sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    font-style: normal;
+    text-shadow: 4px 5px 2px #FC8A5D;
+    font-variant: small-caps; 
+}
+
+.kenia-regular {
+    font-family: "Bytesized", sans-serif;
+    font-size: 64px;
+    font-weight: 400;
+    font-style: normal;
+    text-shadow: 4px 5px 2px #FC8A5D;
+    font-variant: small-caps;
+}
+  
+#frame{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 800px;
+    height: 640px;
+    border: 2px solid rgba(0, 0, 0, 0.27);
+    background-image: url(img/10_backround/ricardo-resende-I5S0ZKTDwgU-unsplash.jpg);
+    background-color: rgba(103, 103, 103, 0.2);
+    background-position: center;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 15px;
+}
+
+canvas{
+    background-color: black;
+    z-index: 1000;
+}
+
+canvas:hover{
+    cursor: pointer;
+}
+
+.control-button-container{
+    display: flex;
+    border-radius: 20px 20px 20px 20px;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    height: 120px;
+    width: 800px;
+    box-shadow: 0px 8px 7px rgba(0, 0, 0, 0.139);
+    text-shadow: 4px 4px rgba(0, 0, 0, 0.515);
+    img{
+        filter: invert(96%) sepia(96%) saturate(0%) hue-rotate(48deg) brightness(106%) contrast(104%);
+        width: 40px;
+        height: 40px;
+        border-radius: 3px;
+    }
+    :nth-child(4){
+    img{
+        width: 100px;
+    } 
+}
+}
+
+.single-key{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: "Bytesized", sans-serif;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 3px 2px #838383;
+}
+
+.key-pressed{
+    img{
+        filter: invert(83%) sepia(53%) saturate(2438%) hue-rotate(347deg) brightness(111%) contrast(107%);
+    }
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: rgba(255, 255, 255, 0.461);
+    margin: 16px;
+    span{
+        font-family: "Bytesized", sans-serif;
+    }
+    a{  
+        font-family: "Bytesized", sans-serif;
+        font-size: 24px;
+        text-decoration: none;
+        color: #ffffff6f;
+        ;        
+    }
+    a:hover{
+        color: #fda785;
+    }
+}
+
+.impressum-rotate{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    min-width: 100px;
+    min-height: 40px;
+    bottom: 0px;
+    text-decoration: none;
+    color: #FC8A5D;   
+    font-family: "Bytesized", sans-serif;
+    font-size: 24px; 
+    transition: 150ms ease-in-out;          
+    }
+
+a:hover{
+    color: #fda785;
+}
+
+
+#speaker{   
+    width: 40px;
+    height: 40px;
+    margin-left: 0px;
+    cursor: pointer;
+}
+
+#speaker:hover{
+    filter: invert(83%) sepia(53%) saturate(2438%) hue-rotate(347deg) brightness(111%) contrast(107%);
+}
+
+.musicCb{
+    display: flex;
+    flex-direction: column;
+}
+
+#musicCheckbox{
+    display: none;    
+}
+
+#musicCheckboxTouch{
+    display: none;    
+}
+
+#guitarLabel:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: transform 250ms ease-in-out;
+    filter: invert(3%) sepia(26%) saturate(1555%) hue-rotate(357deg) brightness(101%) contrast(106%);
+}
+
+#guitarPicture{
+    width: 40px;
+    height: 40px;
+}
+
+
+.infoToast{
+    display: flex;
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 0;
+    border: 3px solid rgb(255, 255, 255);
+    background-color: #272727;
+    border-radius: 15px 15px 15px 15px;
+    font-family: "Bytesized", sans-serif;
+    font-size: 24px;
+    color: rgb(255, 255, 255);
+    text-shadow: 4px 4px rgba(0, 0, 0, 0.566);
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.hovered-canvas{
+    animation: changeBorder 250ms  ease-in-out;
+    animation-fill-mode: forwards;
+
+}
+
+.arrow-down{
+        height: 20px;
+        width: 20px;
+        filter: invert(100%) sepia(4%) saturate(7443%) hue-rotate(185deg) brightness(108%) contrast(112%);
+        animation: animateArrow 2000ms infinite; 
+}
+
+#myRange{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100px;
+    height: 15px;
+    border-radius: 24px; 
+    background: rgb(172,0,0);
+    background: linear-gradient(279deg, rgba(255,255,255,1) 0%, rgba(193,193,193,1) 100%);
+    filter: drop-shadow(0px 4px 3px rgba(0, 0, 0, 0.75));
+}
+
+#myRange::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%; 
+    background: #ffffff;
+    border: 2px solid rgb(103, 103, 103);
+    cursor: pointer;
+    transition: 150ms ease-in-out;
+  }
+
+#myRange::-webkit-slider-thumb:hover {    
+    border: 2px solid rgb(210, 119, 0);
+    
+  }
+
+canvas{
+    display: block;
+}
+
+
+#touchLeft{
+    filter: invert(94%) sepia(94%) saturate(24%) hue-rotate(53deg) brightness(106%) contrast(106%);    border: none;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('img/icons/move-left.png');
+}
+
+#touchRight{
+    filter: invert(94%) sepia(94%) saturate(24%) hue-rotate(53deg) brightness(106%) contrast(106%);    border: none;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('img/icons/move-right.png');
+}
+
+#touchJump{
+    filter: invert(94%) sepia(94%) saturate(24%) hue-rotate(53deg) brightness(106%) contrast(106%);    border: none;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('img/icons/jump.png');
+}
+
+#touchThrow{
+    filter: invert(94%) sepia(94%) saturate(24%) hue-rotate(53deg) brightness(106%) contrast(106%);    border: none;
+    background-size: 80px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('img/icons/bottle.png');
+}
+
+#touchFullscreen{
+    filter: invert(94%) sepia(94%) saturate(24%) hue-rotate(53deg) brightness(106%) contrast(106%);    border: none;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('img/icons/fullscreen.png');
+}
+
+#reloadGame{
+    filter: invert(94%) sepia(94%) saturate(24%) hue-rotate(53deg) brightness(106%) contrast(106%);    border: none;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('img/icons/reload.png'); 
+}
+
+#reloadGameBig{
+    filter: invert(94%) sepia(94%) saturate(24%) hue-rotate(53deg) brightness(106%) contrast(106%);    
+    border: none;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: none;
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top: 0%;
+    right: 45%;
+}
+
+#fullscreenBig{
+    filter: invert(94%) sepia(94%) saturate(24%) hue-rotate(53deg) brightness(106%) contrast(106%);    
+    border: none;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top: 0%;
+    right: 5%;
+}
+
+#fullscreenBig:hover{
+    filter: invert(83%) sepia(53%) saturate(2438%) hue-rotate(347deg) brightness(111%) contrast(107%);    
+    cursor: pointer;
+}
+
+#reloadGameBig:hover{
+    filter: invert(83%) sepia(53%) saturate(2438%) hue-rotate(347deg) brightness(111%) contrast(107%);    
+    cursor: pointer;
+}
+
+.nav-bar-top{
+    z-index: 1000;
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    justify-content: space-around;        
+    bottom: 0%;
+    opacity: 0.9;        
+}
+
+.nav-bar-top-touch{
+    z-index: 1000;
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    justify-content: space-around;        
+    bottom: 0%;
+    opacity: 0.9; 
+}
+
+@media only screen and (max-height: 800px) {
+    
+    h1{
+        display: none;
+    }
+}
+@media only screen and (max-height: 720px) {
+    
+    footer{
+        display: none;
+    }
+}
+
+@media only screen and (max-height: 620px) {
+    
+    .control-button-container {
+        display:none;
+    }
+    #fullscreenBig{
+        display: none;
+    }
+
+    #reloadGameBig{
+        display: none !important;
+    }
+
+
+    #frame{
+        z-index: 100;
+        background-image: none;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        background-color: transparent;
+    }
+
+    footer{
+        margin: 0px;
+    }
+
+    .infoToast{
+        position: absolute;
+        border-radius: 25px;
+    }    
+
+    #touchMute{
+        border: none;
+        position: fixed;
+        filter: invert(94%) sepia(94%) saturate(24%) hue-rotate(53deg) brightness(106%) contrast(106%);    
+        border: none;
+        background-color: transparent;
+        background-size: contain;
+        background-image: url('img/icons/volume-64.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        right: 45%;
+        height: 55px;
+        bottom:85%;
+    }
+
+    #reloadGame{
+        display: none;
+        position: fixed;
+        height: 50px;
+        width: 50px;
+        background-position: center;
+        background-size: contain;
+        right: 5%;
+        bottom:85%;
+    }
+    #musicToggle{
+        filter: invert(100%) sepia(0%) saturate(7463%) hue-rotate(26deg) brightness(111%) contrast(108%);  
+        width: 55px;
+        height: 55px;
+        position: fixed;
+        bottom: 85%;
+        right: 35%;
+    }
+
+    #touchFullscreen{
+        position: fixed;
+        height: 50px;
+        right: 90%;
+        background-size: contain;
+        bottom:85%;
+    }
+
+    #touchLeft{ 
+        position: fixed;
+        left: 2vw;
+        bottom: 45%;
+    }   
+
+    #touchRight{
+        position: fixed;
+        right: 2vw;
+        bottom: 45%;
+    }
+
+    #touchJump{
+        position: fixed;
+        right: 2vw;
+        bottom: 20%;
+    }
+    #touchThrow{
+        position: fixed;
+        left: 2vw;
+        bottom: 20%;
+    }
+  
+}
+
+
+@media only screen and (max-width: 808px) {
+    canvas{
+        width: 100% ;
+    }
+    .menu{
+        display: none;
+    }
+    h1{
+        display: none;
+    }
+    #frame{
+        width: 100%;
+    }
+    footer{
+        display: none;
+    }
+    .control-button-container {
+        display: none;
+    }
+    #frame{
+        height: auto;
+        background-image: none;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        background-color: transparent;
+    }
+
+}
+
+@media only screen and (max-height: 644px) {
+    #frame{
+        height: 605px;
+    }
+    .control-button-container {
+        height: 100px;
+    }
+
+    #reloadGameBig{
+        height: 32px;
+        width: 32px;
+    }
+
+    #fullscreenBig{
+        height: 32px;
+        width: 32px;
+    }
+    
+}
+
+@media only screen and (max-height: 510px) { 
+    canvas{
+        height: 100vh ;
+    }
+    #frame{
+        height:100vh;
+    }
+} 
+
+.touch-button{
+    height: 80px;
+    width: 80px;
+}
+
+.nav-bar-top{
+    display: none;
+}
+
+.display-none{
+    display: none !important;
+}
+
+.display-flex{
+    display: flex !important;
+}
+
+.rotate-screen{ 
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    z-index: 10000;
+    position: absolute;
+    background-image: url(img/10_background/desert.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: conver;
+    height: 100vh;
+    width: 100vw; 
+    text-align: center;    
+    img{
+        filter: invert(94%) sepia(94%) saturate(24%) hue-rotate(53deg) brightness(106%) contrast(106%); 
+        position: absolute;
+        top: 35%;
+        left: 45%;
+        width: 10%;
+    }  
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .control-button-container {
+        display:none;
+    }
+    #fullscreenBig{
+        display: none;
+    }
+
+    #reloadGameBig{
+        display: none !important;
+    }
+
+
+    #frame{
+        z-index: 100;
+        background-image: none;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        background-color: transparent;
+    }
+
+    footer{
+        margin: 0px;
+    }
+
+    .infoToast{
+        position: absolute;
+        border-radius: 25px;
+    }    
+
+    #touchMute{
+        border: none;
+        position: fixed;
+        filter: invert(94%) sepia(94%) saturate(24%) hue-rotate(53deg) brightness(106%) contrast(106%);    
+        border: none;
+        background-color: transparent;
+        background-size: contain;
+        background-image: url('img/icons/volume-64.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        right: 45%;
+        height: 55px;
+        bottom:85%;
+    }
+
+    #reloadGame{
+        display: none;
+        position: fixed;
+        height: 50px;
+        width: 50px;
+        background-position: center;
+        background-size: contain;
+        right: 5%;
+        bottom:85%;
+    }
+    #musicToggle{
+        filter: invert(100%) sepia(0%) saturate(7463%) hue-rotate(26deg) brightness(111%) contrast(108%);  
+        width: 55px;
+        height: 55px;
+        position: fixed;
+        bottom: 85%;
+        right: 35%;
+    }
+
+    #touchFullscreen{
+        position: fixed;
+        height: 50px;
+        right: 90%;
+        background-size: contain;
+        bottom:85%;
+    }
+
+    #touchLeft{ 
+        position: fixed;
+        left: 2vw;
+        bottom: 45%;
+    }   
+
+    #touchRight{
+        position: fixed;
+        right: 2vw;
+        bottom: 45%;
+    }
+
+    #touchJump{
+        position: fixed;
+        right: 2vw;
+        bottom: 20%;
+    }
+    #touchThrow{
+        position: fixed;
+        left: 2vw;
+        bottom: 20%;
+    }
+  }
+
+@keyframes changeBorder {
+    0%{
+        border: 2px solid white;
+    }
+    100%{
+        border: 2px solid rgb(255, 224, 23);
+    }
+}
+
+@keyframes animateArrow {
+    0%{
+        scale: 1;
+    }
+    50%{
+        scale: 1.2;
+    }
+    100%{
+        scale: 1.0;
+    }
+}

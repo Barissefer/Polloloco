@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="style.css">
+    <script src="models/drawable-object.class.js" defer></script>
+    <script src="models/screens.class.js" defer></script>
+    <script src="models/movable-object.class.js" defer></script>
+    <script src="models/status-bar.class.js" defer></script>
+    <script src="models/world.class.js"></script>
+    <script src="models/character.class.js" defer></script>
+    <script src="models/chicken.class.js" defer></script>
+    <script src="models/chicken-small-class.js" defer></script>
+    <script src="models/clouds.class.js" defer></script>
+    <script src="models/background-object.class.js" defer></script>
+    <script src="models/keyboard.class.js" defer></script>
+    <script src="js/game.js" defer></script>
+    <script src="models/level.class.js" defer></script>
+    <script src="js/bottleSetup.js" defer></script>
+    <script src="models/thowable-object.class.js" defer></script>
+    <script src="models/endboss.class.js" defer></script>
+    <script src="models/coins.class.js" defer></script>
+    <script src="levels/level1.js" defer></script>
+    <script src="levels/restartedLevel.js" defer></script>
+    <script src="js/responsive.js" defer></script>
+    <title>El Pollo Loco</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bytesized&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="img/6_salsa_bottle/1_salsa_bottle_on_ground.png">
+</head>
+
+<body onload="init()">
+    <h1 class="kenia-regular">El pollo loco</h1>
+    <div id="frame">
+        <div id="info" class="infoToast">            
+            <span>Click to Start!</span>
+            <img src="img/icons/arrow-down.png" alt="arrow-down" class="arrow-down">
+        </div>
+        <div class="single-key"><img onclick="restartGame()" id="reloadGameBig" src="img/icons/reload.png" alt="speaker"></div>
+        <div class="single-key"><img onclick="fullscreen()" id="fullscreenBig" src="img/icons/fullscreen.png" alt="fullscreen button"></div>
+        <canvas onclick="startGame()" id="canvas" width="720" height="480"></canvas>
+        <div class="menu">
+            <div id="controlButton" class="control-button-container">
+                <div class="single-key" id="arrowLeft"><img src="img/icons/arrow-left.png" alt="arrow left"><span>Move left</span></div>
+                <div class="single-key" id="arrowRight"><img src="img/icons/arrow-right.png" alt="arrow right"><span>Move right</span></div>
+                <div class="single-key" id="dKey"><img src="img/icons/d-key.png" alt="d key"><span>Throw bottle</span></div>
+                <div class="single-key" id="spaceKey"><img src="img/icons/space-key.png" alt="space key"><span>Jump</span></div>
+                <div class="slidecontainer">
+                    <input type="range" min="0" max="100" value="20" class="slider" id="myRange">
+                  </div>
+                  <div class="musicCb" >
+                    <input type="checkbox" id="musicCheckbox" onclick="toggleMusic()">
+                    <label id="guitarLabel" for="musicCheckbox"><img id="guitarPicture" src="img/icons/guitar.png" /></label>
+                  </div>
+                <div class="single-key"><img onclick="muteSound()" id="speaker" src="img/icons/volume-64.png" alt="speaker"></div>                
+            </div>        
+        </div>
+        <div id="navBarTop" class="nav-bar-top">
+            <button class="touch-button" id="touchLeft"></button>
+            <button class="touch-button" id="touchRight"></button>
+            <button class="touch-button" id="touchJump"></button>
+            <button class="touch-button" id="touchThrow"></button>
+            <button onclick="muteSound()" class="touch-button" id="touchMute"></button>
+            <button onclick="fullscreenMobile()" class="touch-button" id="touchFullscreen"></button>
+            <button onclick="restartGame()" id="reloadGame"></button>
+            <div id="musicToggle" class="musicCb" >
+                <input type="checkbox" id="musicCheckboxTouch" onclick="toggleMusic()">
+                <label  for="musicCheckboxTouch"><img id="guitarPictureTouch" src="img/icons/guitar.png" /></label>
+            </div>
+        </div>
+        <div id="rotateScreen" class="rotate-screen">
+            <h2>El pollo loco</h2>
+            <br>            
+            <h3>Please rotate your Phone horizontally</h3>
+            <a class="impressum-rotate" href="impressum.html">Impressum</a>
+            <img src="img/icons/rotate.gif" alt="rotate screen">
+
+        </div>
+    </div>
+        
+<footer>
+    <span>Icons by <a href="https://icons8.com/">icons8</a></span>
+    <br>
+    <span>Sound Effect by <a href="https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6462">freesound_community</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6462">Pixabay</a></span>
+    <br>
+    <a href="impressum.html">Impressum</a>
+</footer>
+
+</body>
+</html>
